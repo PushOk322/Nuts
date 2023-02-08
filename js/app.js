@@ -105,6 +105,25 @@ if (pageDefiner.classList.contains("404")) {
 };
 
 
+//********NAVBAR*******/
+const navbarButtons = document.querySelectorAll('.navbar__button');
+const navbarImages = document.querySelectorAll('.navbar__img');
+if (navbarButtons) {
+    for (let i = 0; i < navbarButtons.length; i++){
+        navbarButtons[i].addEventListener("click", function (e) {            
+            navbarButtons.forEach(item => 
+                item.classList.remove('_active')
+            );
+            navbarImages.forEach(item =>
+                item.classList.remove('_active')
+            );
+
+            navbarButtons[i].classList.add('_active');
+            navbarImages[i].classList.add('_active');
+            
+        })
+    }
+}
 
 //********POPUP*******/
 const formButtons = document.querySelectorAll('.popup-button');
@@ -162,6 +181,24 @@ const swiperProducer = new Swiper('.about-producer__slider', {
     },
 });
 
+const swiperAboutProducer = new Swiper('.about-page-producer__slider', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".about-page-producer-next",
+        prevEl: ".about-page-producer-prev",
+    },
+});
+
+const swiperCatalogProducer = new Swiper('.catalog-page-producer__slider', {
+    slidesPerView: 1,
+    spaceBetween: 0,
+    navigation: {
+        nextEl: ".catalog-page-producer-next",
+        prevEl: ".catalog-page-producer-prev",
+    },
+});
+
 const swiperMiniNews = new Swiper('.mini-news__slider', {
     slidesPerView: 3,
     spaceBetween: 32,
@@ -177,7 +214,7 @@ const swiperMiniNews = new Swiper('.mini-news__slider', {
             spaceBetween: 12,
         },
         500: {
-            slidesPerView:1,
+            slidesPerView: 1,
             spaceBetween: 10,
         },
         // when window width is >= 480px
