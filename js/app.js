@@ -108,10 +108,14 @@ if (pageDefiner.classList.contains("404")) {
 //********NAVBAR*******/
 const navbarButtons = document.querySelectorAll('.navbar__button');
 const navbarImages = document.querySelectorAll('.navbar__img');
+const tabsButtons = document.querySelectorAll('.tabs__button');
+const tabsContents = document.querySelectorAll('.tabs__content');
+const productButtons = document.querySelectorAll('.product-navbar__button');
+const productContents = document.querySelectorAll('.product-navbar__content');
 if (navbarButtons) {
-    for (let i = 0; i < navbarButtons.length; i++){
-        navbarButtons[i].addEventListener("click", function (e) {            
-            navbarButtons.forEach(item => 
+    for (let i = 0; i < navbarButtons.length; i++) {
+        navbarButtons[i].addEventListener("click", function (e) {
+            navbarButtons.forEach(item =>
                 item.classList.remove('_active')
             );
             navbarImages.forEach(item =>
@@ -120,7 +124,38 @@ if (navbarButtons) {
 
             navbarButtons[i].classList.add('_active');
             navbarImages[i].classList.add('_active');
-            
+        })
+    }
+}
+
+if (tabsButtons) {
+    for (let i = 0; i < tabsButtons.length; i++) {
+        tabsButtons[i].addEventListener("click", function (e) {
+            tabsButtons.forEach(item =>
+                item.classList.remove('_active')
+            );
+            tabsContents.forEach(item =>
+                item.classList.remove('_active')
+            );
+
+            tabsButtons[i].classList.add('_active');
+            tabsContents[i].classList.add('_active');
+        })
+    }
+}
+
+if (productButtons) {
+    for (let i = 0; i < productButtons.length; i++) {
+        productButtons[i].addEventListener("click", function (e) {
+            productButtons.forEach(item =>
+                item.classList.remove('_active')
+            );
+            productContents.forEach(item =>
+                item.classList.remove('_active')
+            );
+
+            productButtons[i].classList.add('_active');
+            productContents[i].classList.add('_active');
         })
     }
 }
@@ -170,6 +205,14 @@ const swiperProducts = new Swiper('.products-list__slider', {
     navigation: {
         nextEl: ".products-list-next",
         prevEl: ".products-list-prev",
+    },
+});
+
+const swiperProductPage = new Swiper('.product-main__slider', {
+    slidesPerView: 1,
+    navigation: {
+        nextEl: ".product-main-next",
+        prevEl: ".product-main-prev",
     },
 });
 
