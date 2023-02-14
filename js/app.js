@@ -1,4 +1,34 @@
 
+//**********************LAZY-LOAD******************************/
+let lazyImages = document.querySelectorAll(".lazy");
+let windowHeight = document.documentElement.clientHeight;
+let lazyImagesPositions = [];
+const currentScrollPosition = window.pageYOffset;
+// const elementOffsetTop = document.getElementById(elementID).offsetTop
+lazyImages.forEach(img => {
+    lazyImagesPositions.push(img.offsetTop);
+});
+
+showScrollTop = () => {
+    const currentScrollPosition = window.pageYOffset;
+
+    for (let i = 0; i <= lazyImagesPositions.length; i++) {
+        if (currentScrollPosition + 800 > lazyImagesPositions[i]) {
+            delete lazyImagesPositions[i];
+            lazyImages[i].classList.add('_active');
+            console.log(1);
+        }
+    }
+
+}
+
+window.addEventListener('scroll', showScrollTop)
+
+
+
+
+
+
 //********MENU_BURGER**********/
 const iconMenu = document.querySelector('.menu-icon');
 const menuBody = document.querySelector('.header__mobile-menu');
@@ -76,32 +106,34 @@ if (dropdownButton) {
 
 
 
+//***********PAGE-DEFINER*********** */
+
 const pageDefiner = document.querySelector(".page-definer");
 const headerLinks = document.querySelectorAll(".header__link");
 const headerLinksMobile = document.querySelectorAll(".header__link-mobile");
 if (pageDefiner.classList.contains("index")) {
     headerLinks[0].classList.toggle("active");
-    headerLinks[0].classList.toggle("active");
+    headerLinksMobile[0].classList.toggle("active");
 };
-if (pageDefiner.classList.contains("projects") || pageDefiner.classList.contains("one-projects")) {
+if (pageDefiner.classList.contains("about") || pageDefiner.classList.contains("one-projects")) {
     headerLinks[1].classList.toggle("active");
-    headerLinks[1].classList.toggle("active");
+    headerLinksMobile[1].classList.toggle("active");
 };
-if (pageDefiner.classList.contains("about")) {
+if (pageDefiner.classList.contains("payment")) {
     headerLinks[2].classList.toggle("active");
-    headerLinks[2].classList.toggle("active");
+    headerLinksMobile[2].classList.toggle("active");
 };
-if (pageDefiner.classList.contains("blog") || pageDefiner.classList.contains("one-news")) {
+if (pageDefiner.classList.contains("for-clients")) {
     headerLinks[3].classList.toggle("active");
-    headerLinks[3].classList.toggle("active");
+    headerLinksMobile[3].classList.toggle("active");
+};
+if (pageDefiner.classList.contains("news") || pageDefiner.classList.contains("one-news")) {
+    headerLinks[4].classList.toggle("active");
+    headerLinksMobile[4].classList.toggle("active");
 };
 if (pageDefiner.classList.contains("contacts")) {
-    headerLinks[4].classList.toggle("active");
-    headerLinks[4].classList.toggle("active");
-};
-if (pageDefiner.classList.contains("404")) {
-    headerLinks[0].classList.toggle("active");
-    headerLinks[0].classList.toggle("active");
+    headerLinks[5].classList.toggle("active");
+    headerLinksMobile[5].classList.toggle("active");
 };
 
 
@@ -159,42 +191,6 @@ if (productButtons) {
         })
     }
 }
-
-//********POPUP*******/
-const formButtons = document.querySelectorAll('.popup-button');
-const popup = document.querySelector('.popup__outer');
-const cross = document.querySelector('.popup__cross');
-if (formButtons && popup && cross) {
-    for (let i = 0; i < formButtons.length; i++) {
-        formButtons[i].addEventListener('click', (e) => {
-            e.preventDefault();
-            popup.classList.toggle("active");
-            document.body.classList.add('_lock');
-        });
-    }
-    cross.addEventListener('click', () => {
-        popup.classList.toggle("active");
-        document.body.classList.remove('_lock');
-    });
-};
-
-const popupCompleteButton = document.querySelector('.popup-complete-button');
-const popupComplete = document.querySelector('.popup-complete__outer');
-const crossComplete = document.querySelector('.popup-complete__cross');
-if (popupCompleteButton && popupComplete && crossComplete) {
-    popupCompleteButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        popupComplete.classList.toggle("active");
-        document.body.classList.add('_lock');
-    });
-    crossComplete.addEventListener('click', () => {
-        popupComplete.classList.toggle("active");
-        document.body.classList.remove('_lock');
-    });
-};
-
-//********POPUP*******END/
-
 
 
 
