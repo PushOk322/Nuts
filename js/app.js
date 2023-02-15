@@ -109,31 +109,34 @@ if (dropdownButton) {
 //***********PAGE-DEFINER*********** */
 
 const pageDefiner = document.querySelector(".page-definer");
+console.log(pageDefiner);
 const headerLinks = document.querySelectorAll(".header__link");
+console.log(headerLinks);
 const headerLinksMobile = document.querySelectorAll(".header__link-mobile");
+console.log(headerLinksMobile);
 if (pageDefiner.classList.contains("index")) {
-    headerLinks[0].classList.toggle("active");
-    headerLinksMobile[0].classList.toggle("active");
+    headerLinks[0].classList.toggle("_active");
+    headerLinksMobile[0].classList.toggle("_active");
 };
-if (pageDefiner.classList.contains("about") || pageDefiner.classList.contains("one-projects")) {
-    headerLinks[1].classList.toggle("active");
-    headerLinksMobile[1].classList.toggle("active");
+if (pageDefiner.classList.contains("about")) {
+    headerLinks[1].classList.toggle("_active");
+    headerLinksMobile[1].classList.toggle("_active");
 };
 if (pageDefiner.classList.contains("payment")) {
-    headerLinks[2].classList.toggle("active");
-    headerLinksMobile[2].classList.toggle("active");
+    headerLinks[2].classList.toggle("_active");
+    headerLinksMobile[2].classList.toggle("_active");
 };
-if (pageDefiner.classList.contains("for-clients")) {
-    headerLinks[3].classList.toggle("active");
-    headerLinksMobile[3].classList.toggle("active");
+if (pageDefiner.classList.contains("_for-clients")) {
+    headerLinks[3].classList.toggle("_active");
+    headerLinksMobile[3].classList.toggle("_active");
 };
 if (pageDefiner.classList.contains("news") || pageDefiner.classList.contains("one-news")) {
-    headerLinks[4].classList.toggle("active");
-    headerLinksMobile[4].classList.toggle("active");
+    headerLinks[4].classList.toggle("_active");
+    headerLinksMobile[4].classList.toggle("_active");
 };
 if (pageDefiner.classList.contains("contacts")) {
-    headerLinks[5].classList.toggle("active");
-    headerLinksMobile[5].classList.toggle("active");
+    headerLinks[5].classList.toggle("_active");
+    headerLinksMobile[5].classList.toggle("_active");
 };
 
 
@@ -148,14 +151,14 @@ if (navbarButtons) {
     for (let i = 0; i < navbarButtons.length; i++) {
         navbarButtons[i].addEventListener("click", function (e) {
             navbarButtons.forEach(item =>
-                item.classList.remove('_active')
+                item.classList.remove('active')
             );
             navbarImages.forEach(item =>
-                item.classList.remove('_active')
+                item.classList.remove('active')
             );
 
-            navbarButtons[i].classList.add('_active');
-            navbarImages[i].classList.add('_active');
+            navbarButtons[i].classList.add('active');
+            navbarImages[i].classList.add('active');
         })
     }
 }
@@ -164,14 +167,14 @@ if (tabsButtons) {
     for (let i = 0; i < tabsButtons.length; i++) {
         tabsButtons[i].addEventListener("click", function (e) {
             tabsButtons.forEach(item =>
-                item.classList.remove('_active')
+                item.classList.remove('active')
             );
             tabsContents.forEach(item =>
-                item.classList.remove('_active')
+                item.classList.remove('active')
             );
 
-            tabsButtons[i].classList.add('_active');
-            tabsContents[i].classList.add('_active');
+            tabsButtons[i].classList.add('active');
+            tabsContents[i].classList.add('active');
         })
     }
 }
@@ -180,14 +183,14 @@ if (productButtons) {
     for (let i = 0; i < productButtons.length; i++) {
         productButtons[i].addEventListener("click", function (e) {
             productButtons.forEach(item =>
-                item.classList.remove('_active')
+                item.classList.remove('active')
             );
             productContents.forEach(item =>
-                item.classList.remove('_active')
+                item.classList.remove('active')
             );
 
-            productButtons[i].classList.add('_active');
-            productContents[i].classList.add('_active');
+            productButtons[i].classList.add('active');
+            productContents[i].classList.add('active');
         })
     }
 }
@@ -195,8 +198,16 @@ if (productButtons) {
 
 
 //********SWIPER**********/
+// import Swiper, { Navigation } from 'swiper';
+// // import Swiper and modules styles
+// import 'swiper/css';
+// import 'swiper/css/navigation';
+
+
+
 
 const swiperProducts = new Swiper('.products-list__slider', {
+    // modules: [Navigation],
     slidesPerView: 1,
     navigation: {
         nextEl: ".products-list-next",
@@ -205,6 +216,7 @@ const swiperProducts = new Swiper('.products-list__slider', {
 });
 
 const swiperProductPage = new Swiper('.product-main__slider', {
+    // modules: [Navigation],
     slidesPerView: 1,
     navigation: {
         nextEl: ".product-main-next",
@@ -213,6 +225,7 @@ const swiperProductPage = new Swiper('.product-main__slider', {
 });
 
 const swiperProducer = new Swiper('.about-producer__slider', {
+    // modules: [Navigation],
     slidesPerView: 1,
     navigation: {
         nextEl: ".about-producer-next",
@@ -221,6 +234,7 @@ const swiperProducer = new Swiper('.about-producer__slider', {
 });
 
 const swiperAboutProducer = new Swiper('.about-page-producer__slider', {
+    // modules: [Navigation],
     slidesPerView: 1,
     spaceBetween: 0,
     navigation: {
@@ -230,6 +244,7 @@ const swiperAboutProducer = new Swiper('.about-page-producer__slider', {
 });
 
 const swiperCatalogProducer = new Swiper('.catalog-page-producer__slider', {
+    // modules: [Navigation],
     slidesPerView: 1,
     spaceBetween: 0,
     navigation: {
@@ -239,6 +254,7 @@ const swiperCatalogProducer = new Swiper('.catalog-page-producer__slider', {
 });
 
 const swiperMiniNews = new Swiper('.mini-news__slider', {
+    // modules: [Navigation],
     slidesPerView: 3,
     spaceBetween: 32,
     navigation: {
